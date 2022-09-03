@@ -33,7 +33,7 @@ public class QuanLyBienLai {
                     themThongTin();
                     break;
                 case 2:
-                    System.out.println("Cập nhật thông tin");
+                    updateBienLai();
                     break;
                 case 3:
                     System.out.println("Mời bạn nhập mã công tơ mét để xoá: ");
@@ -79,6 +79,24 @@ public class QuanLyBienLai {
         menuQuanLy();
     }
 
+    public static void updateBienLai(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Mời bạn nhập mã công tơ mét");
+        String ma = scanner.nextLine();
+        for (BienLai bienLai : listBienLai) {
+            if (bienLai.getMaSoCTD().equals(ma)) {
+                System.out.println("Tên chủ hộ cũ là : " + bienLai.getTenChuHo() + ", mời bạn thay đổi tên chủ hộ: ");
+                String tenChuHo = scanner.nextLine();
+                bienLai.setTenChuHo(tenChuHo);
+                System.out.println("Số nhà cũ là: " + bienLai.getSoNha() + ", Mời bạn thay đổi số nhà: ");
+                int soNha = Integer.parseInt(scanner.nextLine());
+                bienLai.setSoNha(soNha);
+                System.out.println("Sửa thành công");
+            }
+        }
+        menuQuanLy();
+    }
+
     public static void addBienLai(BienLai bienlai){
         listBienLai.add(bienlai);
     }
@@ -95,7 +113,7 @@ public class QuanLyBienLai {
             System.out.println("Bạn có muốn tiếp tục xoá không, nếu có mời nhập ok: ");
             String checkRemove = scanner.nextLine();
             if (checkRemove.equals("ok")) {
-                System.out.println("Nhập mã phiếu mượn bạn muốn xoá: ");
+                System.out.println("Nhập mã công tơ mét bạn muốn xoá: ");
                 String maBienLai = scanner.nextLine();
                 removeBienLai(maBienLai);
             }
