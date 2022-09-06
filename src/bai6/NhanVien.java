@@ -78,7 +78,13 @@ public class NhanVien {
     }
 
     public void showInfo() {
-        System.out.println("Thông tin nhân viên là: " + this.fullName + "-" +
-                this.birthDay + "-" + this.phone + "-" + this.email);
+        String Employee_type = "";
+        if (this.employee_type == 0) Employee_type = "Nhân viên có kinh nghiệm lâu năm";
+        if (this.employee_type == 1) Employee_type = "Nhân viên mới ra trường";
+        if (this.employee_type == 2) Employee_type = "Nhân viên thực tập";
+        System.out.println("Thông tin nhân viên là: ");
+        System.out.println("Họ tên nhân viên: " + this.fullName + " Ngày sinh là: " + this.birthDay +
+                " số điện thoại là: " + this.phone + " email là: " + this.email + " Nhân viên thuộc loại là: " + Employee_type);
+
     }
 }
