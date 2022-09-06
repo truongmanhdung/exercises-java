@@ -29,3 +29,7 @@ public abstract void draw();
 public interface Drawable {
 void draw();
 }
+
+* Đơn giản để hiểu, đó là abstract class có được trừu tượng 1 phần (0 tới 100%), còn interface có được trừu tường toàn phần (100%).
+
+
